@@ -38,7 +38,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   plan:
-    if: github.event_name == 'pull_request'  # Run only on pull request events
+    if: github.event_name == 'pull_request' || github.event_name == 'release'  # Run on pull request and release events
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
